@@ -1,4 +1,4 @@
-"""
+ """
                 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2    http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
                     <ext:UBLExtensions>
                         <ext:UBLExtension>
@@ -47,10 +47,6 @@
                 <cbc:Note>%(Note)s</cbc:Note>
                 <cbc:DocumentCurrencyCode>%(DocumentCurrencyCode)s</cbc:DocumentCurrencyCode>
                 <cbc:LineCountNumeric>%(LineCountNumeric)s</cbc:LineCountNumeric>
-                <cac:OrderReference>
-                        <cbc:ID>%(OrderReferenceID)s</cbc:ID>
-                        <cbc:IssueDate>%(OrderReferenceDate)s</cbc:IssueDate>
-                </cac:OrderReference>
                 <cac:AccountingSupplierParty>
                     <cbc:AdditionalAccountID>%(SupplierAdditionalAccountID)s</cbc:AdditionalAccountID>
                     <cac:Party>
@@ -154,7 +150,7 @@
                         </cac:PartyTaxScheme>
                         <cac:PartyLegalEntity>
                             <cbc:RegistrationName>%(CustomerPartyName)s</cbc:RegistrationName>
-                            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" %(CustomerschemeID)s schemeName="%(CustomerSchemeID)s">%(CustomerID)s</cbc:CompanyID>
+                            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" %(CustomerschemeID)s schemeName="31">%(CustomerID)s</cbc:CompanyID>
                         </cac:PartyLegalEntity>
                         <cac:Contact>
                         <cbc:ElectronicMail>%(CustomerElectronicMail)s</cbc:ElectronicMail>
@@ -184,7 +180,6 @@
                     <cbc:TaxExclusiveAmount currencyID="%(CurrencyID)s">%(TotalTaxExclusiveAmount)s</cbc:TaxExclusiveAmount>
                     <cbc:TaxInclusiveAmount currencyID="%(CurrencyID)s">%(TotalTaxInclusiveAmount)s</cbc:TaxInclusiveAmount>
                     <cbc:PayableAmount currencyID="%(CurrencyID)s">%(PayableAmount)s</cbc:PayableAmount>
-                </cac:LegalMonetaryTotal>
-                %(data_lines_xml)s
+                </cac:LegalMonetaryTotal>%(data_lines_xml)s
                 </Invoice>
                 """

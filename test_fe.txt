@@ -1,0 +1,190 @@
+"""
+                <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2    http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+                    <ext:UBLExtensions>
+                        <ext:UBLExtension>
+                            <ext:ExtensionContent>
+                                <sts:DianExtensions>
+                                    <sts:InvoiceControl>
+                                        <sts:InvoiceAuthorization>%(InvoiceAuthorization)s</sts:InvoiceAuthorization>
+                                        <sts:AuthorizationPeriod>
+                                            <cbc:StartDate>%(StartDate)s</cbc:StartDate>
+                                            <cbc:EndDate>%(EndDate)s</cbc:EndDate>
+                                        </sts:AuthorizationPeriod>
+                                        <sts:AuthorizedInvoices>
+                                            <sts:Prefix>%(Prefix)s</sts:Prefix>
+                                            <sts:From>%(From)s</sts:From>
+                                            <sts:To>%(To)s</sts:To>
+                                        </sts:AuthorizedInvoices>
+                                    </sts:InvoiceControl>
+                                    <sts:InvoiceSource>
+                                        <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">%(IdentificationCode)s</cbc:IdentificationCode>
+                                    </sts:InvoiceSource>
+                                    <sts:SoftwareProvider>
+                                        <sts:ProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="%(schemeID)s" schemeName="31">%(ProviderID)s</sts:ProviderID>
+                                        <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">%(SoftwareID)s</sts:SoftwareID>
+                                    </sts:SoftwareProvider>
+                                    <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">%(SoftwareSecurityCode)s</sts:SoftwareSecurityCode>
+                                    <sts:AuthorizationProvider>
+                                        <sts:AuthorizationProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="4" schemeName="31">800197268</sts:AuthorizationProviderID>
+                                    </sts:AuthorizationProvider>
+                                    <sts:QRCode>URL=https://catalogo-vpfe.dian.gov.co/document/searchqr?documentKey=%(UUID)s</sts:QRCode>
+                                </sts:DianExtensions>
+                            </ext:ExtensionContent>
+                        </ext:UBLExtension>
+                        <ext:UBLExtension>
+                            <ext:ExtensionContent></ext:ExtensionContent>
+                        </ext:UBLExtension>
+                    </ext:UBLExtensions>
+                <cbc:UBLVersionID>%(UBLVersionID)s</cbc:UBLVersionID>
+                <cbc:CustomizationID>%(CustomizationID)s</cbc:CustomizationID>
+                <cbc:ProfileID>%(ProfileID)s</cbc:ProfileID>
+                <cbc:ProfileExecutionID>%(ProfileExecutionID)s</cbc:ProfileExecutionID>
+                <cbc:ID>%(InvoiceID)s</cbc:ID>
+                <cbc:UUID schemeID="%(ProfileExecutionID)s" schemeName="CUFE-SHA384">%(UUID)s</cbc:UUID>
+                <cbc:IssueDate>%(IssueDate)s</cbc:IssueDate>
+                <cbc:IssueTime>00:00:00-05:00</cbc:IssueTime>
+                <cbc:InvoiceTypeCode>%(InvoiceTypeCode)s</cbc:InvoiceTypeCode>
+                <cbc:Note>%(Note)s</cbc:Note>
+                <cbc:DocumentCurrencyCode>%(DocumentCurrencyCode)s</cbc:DocumentCurrencyCode>
+                <cbc:LineCountNumeric>%(LineCountNumeric)s</cbc:LineCountNumeric>
+                <cac:OrderReference>
+                        <cbc:ID>%(OrderReferenceID)s</cbc:ID>
+                        <cbc:IssueDate>%(OrderReferenceDate)s</cbc:IssueDate>
+                </cac:OrderReference>
+                <cac:AccountingSupplierParty>
+                    <cbc:AdditionalAccountID>%(SupplierAdditionalAccountID)s</cbc:AdditionalAccountID>
+                    <cac:Party>
+                        <cac:PartyName>
+                            <cbc:Name>%(SupplierPartyName)s</cbc:Name>
+                        </cac:PartyName>
+                        <cac:PhysicalLocation>
+                            <cac:Address>
+                            <cbc:ID>%(SupplierCityCode)s</cbc:ID>
+                            <cbc:CityName>%(SupplierCityName)s</cbc:CityName>
+                            <cbc:CountrySubentity>%(SupplierCountrySubentity)s</cbc:CountrySubentity>
+                            <cbc:CountrySubentityCode>%(SupplierCountrySubentityCode)s</cbc:CountrySubentityCode>
+                            <cac:AddressLine>
+                                <cbc:Line>%(SupplierLine)s</cbc:Line>
+                            </cac:AddressLine>
+                            <cac:Country>
+                                <cbc:IdentificationCode>%(SupplierCountryCode)s</cbc:IdentificationCode>
+                                <cbc:Name languageID="es">%(SupplierCountryName)s</cbc:Name>
+                            </cac:Country>
+                            </cac:Address>
+                        </cac:PhysicalLocation>
+                        <cac:PartyTaxScheme>
+                            <cbc:RegistrationName>%(SupplierPartyName)s</cbc:RegistrationName>
+                            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="%(schemeID)s" schemeName="31">%(ProviderID)s</cbc:CompanyID>
+                            <cbc:TaxLevelCode listName="48">%(SupplierTaxLevelCode)s</cbc:TaxLevelCode>
+                            <cac:RegistrationAddress>
+                            <cbc:ID>%(SupplierCityCode)s</cbc:ID>
+                            <cbc:CityName>%(SupplierCityName)s</cbc:CityName>
+                            <cbc:CountrySubentity>%(SupplierCountrySubentity)s</cbc:CountrySubentity>
+                            <cbc:CountrySubentityCode>%(SupplierCountrySubentityCode)s</cbc:CountrySubentityCode>
+                            <cac:AddressLine>
+                                <cbc:Line>%(SupplierLine)s</cbc:Line>
+                            </cac:AddressLine>
+                            <cac:Country>
+                                <cbc:IdentificationCode>%(SupplierCountryCode)s</cbc:IdentificationCode>
+                                <cbc:Name languageID="es">%(SupplierCountryName)s</cbc:Name>
+                            </cac:Country>
+                            </cac:RegistrationAddress>
+                            <cac:TaxScheme>
+                            <cbc:ID>%(TaxSchemeID)s</cbc:ID>
+                            <cbc:Name>%(TaxSchemeName)s</cbc:Name>
+                            </cac:TaxScheme>
+                        </cac:PartyTaxScheme>
+                        <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>%(SupplierPartyName)s</cbc:RegistrationName>
+                            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="%(schemeID)s" schemeName="31">%(ProviderID)s</cbc:CompanyID>
+                            <cac:CorporateRegistrationScheme>
+                            <cbc:ID>%(Prefix)s</cbc:ID>
+                            </cac:CorporateRegistrationScheme>
+                        </cac:PartyLegalEntity>
+                        <cac:Contact>
+                        <cbc:ElectronicMail>%(SupplierElectronicMail)s</cbc:ElectronicMail>
+                        </cac:Contact>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cbc:AdditionalAccountID>%(CustomerAdditionalAccountID)s</cbc:AdditionalAccountID>
+                    <cac:Party>
+                        <cac:PartyIdentification>
+                            <cbc:ID schemeName="%(SchemeNameAdquiriente)s" schemeID="%(SchemeIDAdquiriente)s">%(IDAdquiriente)s</cbc:ID>
+                        </cac:PartyIdentification>
+                        <cac:PartyName>
+                            <cbc:Name>%(CustomerPartyName)s</cbc:Name>
+                        </cac:PartyName>
+                        <cac:PhysicalLocation>
+                            <cac:Address>
+                            <cbc:ID>%(CustomerCityCode)s</cbc:ID>
+                            <cbc:CityName>%(CustomerCityName)s</cbc:CityName>
+                            <cbc:CountrySubentity>%(CustomerCountrySubentity)s</cbc:CountrySubentity>
+                            <cbc:CountrySubentityCode>%(CustomerCountrySubentityCode)s</cbc:CountrySubentityCode>
+                            <cac:AddressLine>
+                                <cbc:Line>%(CustomerLine)s</cbc:Line>
+                            </cac:AddressLine>
+                            <cac:Country>
+                                <cbc:IdentificationCode>%(CustomerCountryCode)s</cbc:IdentificationCode>
+                                <cbc:Name languageID="es">%(CustomerCountryName)s</cbc:Name>
+                            </cac:Country>
+                            </cac:Address>
+                        </cac:PhysicalLocation>
+                        <cac:PartyTaxScheme>
+                            <cbc:RegistrationName>%(CustomerPartyName)s</cbc:RegistrationName>
+                            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" %(CustomerschemeID)s schemeName="%(CustomerSchemeID)s">%(CustomerID)s</cbc:CompanyID>
+                            <cbc:TaxLevelCode listName="48">%(CustomerTaxLevelCode)s</cbc:TaxLevelCode>
+                            <cac:RegistrationAddress>
+                            <cbc:ID>%(CustomerCityCode)s</cbc:ID>
+                            <cbc:CityName>%(CustomerCityName)s</cbc:CityName>
+                            <cbc:CountrySubentity>%(CustomerCountrySubentity)s</cbc:CountrySubentity>
+                            <cbc:CountrySubentityCode>%(CustomerCountrySubentityCode)s</cbc:CountrySubentityCode>
+                            <cac:AddressLine>
+                                <cbc:Line>%(CustomerLine)s</cbc:Line>
+                            </cac:AddressLine>
+                            <cac:Country>
+                                <cbc:IdentificationCode>%(CustomerCountryCode)s</cbc:IdentificationCode>
+                                <cbc:Name languageID="es">%(CustomerCountryName)s</cbc:Name>
+                            </cac:Country>
+                            </cac:RegistrationAddress>
+                            <cac:TaxScheme>
+                            <cbc:ID>%(TaxSchemeID)s</cbc:ID>
+                            <cbc:Name>%(TaxSchemeName)s</cbc:Name>
+                            </cac:TaxScheme>
+                        </cac:PartyTaxScheme>
+                        <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>%(CustomerPartyName)s</cbc:RegistrationName>
+                            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" %(CustomerschemeID)s schemeName="%(CustomerSchemeID)s">%(CustomerID)s</cbc:CompanyID>
+                        </cac:PartyLegalEntity>
+                        <cac:Contact>
+                        <cbc:ElectronicMail>%(CustomerElectronicMail)s</cbc:ElectronicMail>
+                        </cac:Contact>
+                        <cac:Person>
+                        <cbc:FirstName>%(Firstname)s</cbc:FirstName>
+                        </cac:Person>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+                <cac:PaymentMeans>
+                    <cbc:ID>%(PaymentMeansID)s</cbc:ID>
+                    <cbc:PaymentMeansCode>%(PaymentMeansCode)s</cbc:PaymentMeansCode>
+                    <cbc:PaymentDueDate>%(PaymentDueDate)s</cbc:PaymentDueDate>
+                    <cbc:PaymentID>1234</cbc:PaymentID>
+                </cac:PaymentMeans>
+                <cac:PaymentExchangeRate>
+                    <cbc:SourceCurrencyCode>%(CurrencyID)s</cbc:SourceCurrencyCode>
+                    <cbc:SourceCurrencyBaseRate>1.00</cbc:SourceCurrencyBaseRate>
+                    <cbc:TargetCurrencyCode>COP</cbc:TargetCurrencyCode>
+                    <cbc:TargetCurrencyBaseRate>1.00</cbc:TargetCurrencyBaseRate>
+                    <cbc:CalculationRate>%(CalculationRate)s</cbc:CalculationRate>
+                    <cbc:Date>%(DateRate)s</cbc:Date>
+                </cac:PaymentExchangeRate>/tax_total/
+                %(WithholdingTaxTotal)s
+                <cac:LegalMonetaryTotal>
+                    <cbc:LineExtensionAmount currencyID="%(CurrencyID)s">%(TotalLineExtensionAmount)s</cbc:LineExtensionAmount>
+                    <cbc:TaxExclusiveAmount currencyID="%(CurrencyID)s">%(TotalTaxExclusiveAmount)s</cbc:TaxExclusiveAmount>
+                    <cbc:TaxInclusiveAmount currencyID="%(CurrencyID)s">%(TotalTaxInclusiveAmount)s</cbc:TaxInclusiveAmount>
+                    <cbc:PayableAmount currencyID="%(CurrencyID)s">%(PayableAmount)s</cbc:PayableAmount>
+                </cac:LegalMonetaryTotal>
+                %(data_lines_xml)s
+                </Invoice>
+                """
